@@ -1,0 +1,27 @@
+/* src/css/LoginForm.css */
+.background {
+    background-image: url('./imgae/login.jpg'); 
+    background-size: cover;
+    background-position: center;
+    width: 99vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-form {
+    background-color: rgb(107, 182, 201);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 600px;
+  }
+  
+  .login-main {
+    margin-bottom: 60px; /* 제목과 폼 사이에 여백 추가 */
+    text-align: center; /* 제목 중앙 정렬 */
+    font-size: 24px; /* 제목 크기 조정 */
+}
+

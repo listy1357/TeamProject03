@@ -7,19 +7,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class order_detail {
+public class Order_Detail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderDetailid;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private order order; // 주문과 다대일 관계
+    @JoinColumn(name = "orderId")
+    private Orders order; // 주문과 다대일 관계
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private product product; // 제품과 다대일 관계
+    @JoinColumn(name = "productId")
+    private Products product; // 제품과 다대일 관계
 
     @Column(nullable = false)
     private int quantity; // 구매 수량

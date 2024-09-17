@@ -3,13 +3,16 @@ package com.back.back.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.util.List;
+
+import org.springframework.core.OrderComparator;
 
 @Entity
 @Data
 @NoArgsConstructor
-public class members {
+public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,5 +39,5 @@ public class members {
     private int point; // 회원 포인트
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<order> orders;
+    private List<Orders> orders;
 }

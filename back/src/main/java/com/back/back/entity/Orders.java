@@ -10,20 +10,20 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class order {
+public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderid;
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
-    private members member; // 회원과 다대일 관계
+    @JoinColumn(name = "memId")
+    private Members member; // 회원과 다대일 관계
 
     @Column(nullable = false)
     private LocalDateTime orderDate; // 주문 날짜
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<order_detail> orderDetails; // 주문 상세와 일대다 관계
+    private List<Order_Detail> orderDetails; // 주문 상세와 일대다 관계
 }
 

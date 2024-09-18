@@ -1,11 +1,10 @@
 package com.back.back.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 import com.back.back.entity.Members;
 import com.back.back.repository.MembersRepository;
@@ -22,18 +21,13 @@ public class MemberService {
     }
 
     // 회원 ID로 검색
-    public Optional<Members> getMemberById(Long id) {
-        return membersRepository.findById(id);
-    }
-
-    // 회원 아이디로 검색
-    public Optional<Members> getMemberByMemberId(String memberId) {
-        return membersRepository.findByMemberId(memberId);
+    public Optional<Members> getMemberById(Long memId) {
+        return membersRepository.findById(memId);
     }
 
     // 회원 이메일로 검색
-    public Optional<Members> getMemberByEmail(String email) {
-        return membersRepository.findByMemberMail(email);
+    public Optional<Members> getMemberByEmail(String memEmail) {
+        return membersRepository.findByMemberMail(memEmail);
     }
 
     // 모든 회원 조회
@@ -42,7 +36,7 @@ public class MemberService {
     }
 
     // 회원 삭제
-    public void deleteMember(Long id) {
-        membersRepository.deleteById(id);
+    public void deleteMember(Long memId) {
+        membersRepository.deleteById(memId);
     }
 }

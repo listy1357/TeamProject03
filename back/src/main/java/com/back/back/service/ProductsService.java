@@ -1,10 +1,10 @@
 package com.back.back.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.back.back.entity.Products;
 import com.back.back.repository.ProductsRepository;
@@ -21,23 +21,23 @@ public class ProductsService {
     }
 
     // 상품 ID로 검색
-    public Optional<Products> getProductById(Long id) {
-        return productsRepository.findById(id);
+    public Optional<Products> getProductById(Long productId) {
+        return productsRepository.findById(productId);
     }
 
     // 카테고리로 상품 검색
-    public List<Products> getProductsByCategory(String category) {
-        return productsRepository.findByCategory(category);
+    public List<Products> getProductsByCategory(String productCategory) {
+        return productsRepository.findByCategory(productCategory);
     }
 
     // 이름으로 상품 검색
-    public List<Products> getProductsByName(String name) {
-        return productsRepository.findByNameContaining(name);
+    public List<Products> getProductsByName(String productName) {
+        return productsRepository.findByNameContaining(productName);
     }
 
     // 가격이 특정 값보다 큰 상품 검색
-    public List<Products> getProductsWithPriceGreaterThan(int price) {
-        return productsRepository.findProductsWithPriceGreaterThan(price);
+    public List<Products> getProductsWithPriceGreaterThan(int productPrice) {
+        return productsRepository.findProductsWithPriceGreaterThan(productPrice);
     }
 
     // 모든 상품 조회
@@ -46,7 +46,7 @@ public class ProductsService {
     }
 
     // 상품 삭제
-    public void deleteProduct(Long id) {
-        productsRepository.deleteById(id);
+    public void deleteProduct(Long productId) {
+        productsRepository.deleteById(productId);
     }
 }

@@ -1,13 +1,18 @@
 package com.back.back.entity;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.core.OrderComparator;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
 @Data
@@ -25,7 +30,7 @@ public class Members {
     private String memName;
 
     @Column(nullable = false, unique = true)
-    private String memMail;
+    private String memEmail;
 
     private String memAddr1; // 우편번호
     private String memAddr2; // 지역

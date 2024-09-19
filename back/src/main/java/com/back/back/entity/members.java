@@ -43,6 +43,8 @@ public class Members {
 
     private int point; // 회원 포인트
 
+    private String memPhone; //전화번호
+
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Orders> orders;
 }

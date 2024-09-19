@@ -30,6 +30,11 @@ public class MemberService {
         return membersRepository.findByMemberMail(memEmail);
     }
 
+    // 전화번호로 조회
+    public Optional<Members> getMemberByPhone(String phone) {
+        return membersRepository.findByMemPhone(phone);  // 여기를 수정
+    }
+
     // 모든 회원 조회
     public List<Members> getAllMembers() {
         return membersRepository.findAll();

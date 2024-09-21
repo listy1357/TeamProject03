@@ -12,17 +12,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long memId;
+    private String memId;
 
     @Column(nullable = false)
     private String memPw;
@@ -44,16 +48,18 @@ public class Members {
 
     private int point; // 회원 포인트
 
-<<<<<<< HEAD
     private LocalDate membirth;  // 생일
 
     @Column(nullable = false)
     private boolean mailCk;  // 이메일 수신 동의
 
-=======
->>>>>>> origin/main
     private String memPhone; //전화번호
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Orders> orders;
+
+
+  
+    
+
 }

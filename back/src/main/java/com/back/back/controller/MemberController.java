@@ -18,8 +18,10 @@ public class MemberController {
     private MemberService memberService;
 
     // 회원 등록 (POST /api/members)
-    @PostMapping
+    @PostMapping("/Member_join")
     public Members createMember(@RequestBody Members member) {
+        System.out.println(member.getName());
+        // 성공적으로 처리되면 응답
         return memberService.createMember(member);
     }
     // 회원 수정 (PUT /api/members/{id})
@@ -53,11 +55,7 @@ public class MemberController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-<<<<<<< HEAD
     // 모든 회원 조회 (GET /api/members)
-=======
-    // 모든 회원 조회
->>>>>>> origin/main
     @GetMapping
     public List<Members> getAllMembers() {
         return memberService.getAllMembers();

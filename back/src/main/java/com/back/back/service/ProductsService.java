@@ -6,8 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.back.back.entity.ProductImage;
 import com.back.back.entity.Products;
+import com.back.back.repository.ProductImageRepository;
 import com.back.back.repository.ProductsRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class ProductsService {
@@ -15,9 +19,18 @@ public class ProductsService {
     @Autowired
     private ProductsRepository productsRepository;
 
+    @Autowired
+    private ProductImageRepository productImageRepository;
+
     // 상품 저장 또는 업데이트
-    public Products saveProduct(Products product) {
-        return productsRepository.save(product);
+    @Transactional
+    public Products saveProduct(Products product, List<String> imageUrls) {
+        Products savedProduct = productsRepository.save(product);
+        for (String imageUrl : imageUrls) {
+            ProductImage productImage = new ProductImage(imageUrl, savedProduct);
+            productImageRepository.save(productImage);
+        }
+        return savedProduct;
     }
 
     // 상품 ID로 검색

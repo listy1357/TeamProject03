@@ -19,8 +19,8 @@ public class ProductController {
 
     // 상품 생성 또는 업데이트
     @PostMapping
-    public ResponseEntity<Products> saveProduct(@RequestBody Products product) {
-        Products savedProduct = productsService.saveProduct(product);
+    public ResponseEntity<Products> saveProduct(@RequestBody Products products, List<String> imageUrls) {
+        Products savedProduct = productsService.saveProduct(products, imageUrls);
         return ResponseEntity.ok(savedProduct);
     }
 

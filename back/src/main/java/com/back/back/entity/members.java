@@ -26,20 +26,27 @@ public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String memId;
+    @Column(name="Id")
+    private Long uniqueid;
 
-    @Column(nullable = false)
-    private String memPw;
+    @Column(name = "memId")
+    private String id;
 
-    @Column(nullable = false)
-    private String memName;
+    @Column(name="memPw", nullable = false)
+    private String password;
+
+    @Column(name="memName", nullable = false)
+    private String name;
 
     @Column(nullable = false, unique = true)
-    private String memEmail;
+    private String email;
 
-    private String memAddr1; // 우편번호
-    private String memAddr2; // 지역
-    private String memAddr3; // 상세주소
+    @Column(name="memAddr1")
+    private String zipcode; // 우편번호
+    @Column(name="memAddr2")
+    private String address; // 지역
+    @Column(name="memAddr3")
+    private String detailAddress; // 상세주소
 
     @Column(nullable = false)
     private boolean adminCk; // 관리자 여부
@@ -48,12 +55,14 @@ public class Members {
 
     private int point; // 회원 포인트
 
-    private LocalDate membirth;  // 생일
+    @Column(name="memBirth")
+    private LocalDate birth;  // 생일
 
     @Column(nullable = false)
     private boolean mailCk;  // 이메일 수신 동의
 
-    private String memPhone; //전화번호
+    @Column(name="memPhone")
+    private String phoneNumber; //전화번호
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Orders> orders;

@@ -1,39 +1,52 @@
 package com.back.back.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.back.back.entity.Members;
 import com.back.back.service.MemberService;
 
+import lombok.RequiredArgsConstructor;
+@CrossOrigin(origins = "http://localhost:3000") // React 앱의 주소
 @RestController
 @RequestMapping("/api/members")
+@RequiredArgsConstructor
 public class MemberController {
 
     @Autowired
     private MemberService memberService;
 
     // 회원 등록 (POST /api/members)
-    @PostMapping("/Member_join")
-    public Members createMember(@RequestBody Members member) {
+    @PostMapping("/join")
+    public ResponseEntity<Members> createMember(@RequestBody Members member) {
+        Members savedMember = memberService.createMember(member);
         System.out.println(member.getName());
         // 성공적으로 처리되면 응답
-        return memberService.createMember(member);
+        return ResponseEntity.ok(savedMember);
     }
     // 회원 수정 (PUT /api/members/{id})
-    @PutMapping("/{id}")
-    public Members updateMember(@PathVariable Long id, @RequestBody Members updatedMember) {
-        return memberService.updateMember(id, updatedMember);
+    @PutMapping("/{memId}")
+    public Members updateMember(@PathVariable String Id, @RequestBody Members updatedMember) {
+        return memberService.updateMember(Id, updatedMember);
     }
 
     // 회원 고유ID로 검색
-    @GetMapping("/{id}")
-    public ResponseEntity<Members> getMemberById(@PathVariable Long id) {
-        Optional<Members> member = memberService.getMemberById(id);
+    @GetMapping("/{memId}")
+    public ResponseEntity<Members> getMemberById(@PathVariable String memId) {
+        Optional<Members> member = memberService.getMemberById(memId);
         return member.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -62,9 +75,9 @@ public class MemberController {
     }
 
     // 회원 삭제
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMember(@PathVariable Long id) {
-        memberService.deleteMember(id);
+    @DeleteMapping("/{Id}")
+    public ResponseEntity<Void> deleteMember(@PathVariable String Id) {
+        memberService.deleteMember(Id);
         return ResponseEntity.noContent().build();
     }
 }

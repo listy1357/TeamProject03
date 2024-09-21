@@ -24,7 +24,7 @@ public class MemberController {
         return ResponseEntity.ok(savedMember);
     }
 
-    // 회원 ID로 검색
+    // 회원 고유ID로 검색
     @GetMapping("/{id}")
     public ResponseEntity<Members> getMemberById(@PathVariable Long id) {
         Optional<Members> member = memberService.getMemberById(id);
@@ -32,18 +32,19 @@ public class MemberController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // 회원 아이디로 검색
-    @GetMapping("/memberId/{memberId}")
-    public ResponseEntity<Members> getMemberByMemberId(@PathVariable String memberId) {
-        Optional<Members> member = memberService.getMemberByMemberId(memberId);
-        return member.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
 
     // 이메일로 회원 검색
     @GetMapping("/email")
     public ResponseEntity<Members> getMemberByEmail(@RequestParam String email) {
         Optional<Members> member = memberService.getMemberByEmail(email);
+        return member.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // 폰번호로 회원 검색
+    @GetMapping("/Phone")
+    public ResponseEntity<Members> getMemberByPhone(@RequestParam String phone) {
+        Optional<Members> member = memberService.getMemberByPhone(phone);
         return member.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

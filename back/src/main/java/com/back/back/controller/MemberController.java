@@ -17,11 +17,15 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    // 회원 등록 또는 업데이트
+    // 회원 등록 (POST /api/members)
     @PostMapping
-    public ResponseEntity<Members> saveMember(@RequestBody Members member) {
-        Members savedMember = memberService.saveMember(member);
-        return ResponseEntity.ok(savedMember);
+    public Members createMember(@RequestBody Members member) {
+        return memberService.createMember(member);
+    }
+    // 회원 수정 (PUT /api/members/{id})
+    @PutMapping("/{id}")
+    public Members updateMember(@PathVariable Long id, @RequestBody Members updatedMember) {
+        return memberService.updateMember(id, updatedMember);
     }
 
     // 회원 고유ID로 검색
@@ -49,11 +53,10 @@ public class MemberController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // 모든 회원 조회
+    // 모든 회원 조회 (GET /api/members)
     @GetMapping
-    public ResponseEntity<List<Members>> getAllMembers() {
-        List<Members> members = memberService.getAllMembers();
-        return ResponseEntity.ok(members);
+    public List<Members> getAllMembers() {
+        return memberService.getAllMembers();
     }
 
     // 회원 삭제

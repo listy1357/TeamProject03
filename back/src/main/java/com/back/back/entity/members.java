@@ -1,5 +1,6 @@
 package com.back.back.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -42,6 +43,11 @@ public class Members {
     private LocalDateTime regDate; // 회원 가입일
 
     private int point; // 회원 포인트
+
+    private LocalDate membirth;  // 생일
+
+    @Column(nullable = false)
+    private boolean mailCk;  // 이메일 수신 동의
 
     private String memPhone; //전화번호
 

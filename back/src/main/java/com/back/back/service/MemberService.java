@@ -15,9 +15,27 @@ public class MemberService {
     @Autowired
     private MembersRepository membersRepository;
 
-    // 회원 저장 또는 업데이트
-    public Members saveMember(Members member) {
+    // 회원 생성
+    public Members createMember(Members member) {
         return membersRepository.save(member);
+    }
+
+    // // 회원 저장 또는 업데이트
+    // public Members saveMember(Members member) {
+    //     return membersRepository.save(member);
+    // }
+    // 회원 수정
+    public Members updateMember(Long id, Members updatedMember) {
+        return membersRepository.findById(id).map(member -> {
+            member.setMemEmail(updatedMember.getMemEmail());
+            member.setMemPw(updatedMember.getMemPw());
+            member.setMemName(updatedMember.getMemName());
+            member.setMemPhone(updatedMember.getMemPhone());
+            member.setMemAddr1(updatedMember.getMemAddr1());
+            member.setMemAddr2(updatedMember.getMemAddr2());
+            member.setMemAddr3(updatedMember.getMemAddr3());
+            return membersRepository.save(member);
+        }).orElseThrow(() -> new RuntimeException("Member not found with id " + id));
     }
 
     // 회원 ID로 검색

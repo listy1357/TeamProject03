@@ -25,7 +25,7 @@ public class MemberService {
     //     return membersRepository.save(member);
     // }
     // 회원 수정
-    public Members updateMember(String memId, Members updatedMember) {
+    public Members updateMember(Long memId, Members updatedMember) {
         // 먼저 해당 ID의 회원이 존재하는지 확인
         Optional<Members> existingMemberOpt = membersRepository.findById(memId);
         if (existingMemberOpt.isPresent()) {
@@ -42,7 +42,7 @@ public class MemberService {
     }
 
     // 회원 ID로 검색
-    public Optional<Members> getMemberById(String memId) {
+    public Optional<Members> getMemberById(Long memId) {
         return membersRepository.findById(memId);
     }
 
@@ -62,7 +62,7 @@ public class MemberService {
     }
 
     // 회원 삭제
-    public void deleteMember(String memId) {
+    public void deleteMember(Long memId) {
         membersRepository.deleteById(memId); // ID로 회원 삭제
     }
 }

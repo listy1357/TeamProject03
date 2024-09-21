@@ -39,13 +39,13 @@ public class MemberController {
     }
     // 회원 수정 (PUT /api/members/{id})
     @PutMapping("/{memId}")
-    public Members updateMember(@PathVariable String Id, @RequestBody Members updatedMember) {
+    public Members updateMember(@PathVariable Long Id, @RequestBody Members updatedMember) {
         return memberService.updateMember(Id, updatedMember);
     }
 
     // 회원 고유ID로 검색
     @GetMapping("/{memId}")
-    public ResponseEntity<Members> getMemberById(@PathVariable String memId) {
+    public ResponseEntity<Members> getMemberById(@PathVariable Long memId) {
         Optional<Members> member = memberService.getMemberById(memId);
         return member.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -76,7 +76,7 @@ public class MemberController {
 
     // 회원 삭제
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Void> deleteMember(@PathVariable String Id) {
+    public ResponseEntity<Void> deleteMember(@PathVariable Long Id) {
         memberService.deleteMember(Id);
         return ResponseEntity.noContent().build();
     }

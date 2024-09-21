@@ -53,7 +53,11 @@ public class MemberController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     // 모든 회원 조회 (GET /api/members)
+=======
+    // 모든 회원 조회
+>>>>>>> origin/main
     @GetMapping
     public List<Members> getAllMembers() {
         return memberService.getAllMembers();

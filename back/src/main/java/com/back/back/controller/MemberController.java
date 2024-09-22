@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.back.back.dto.MemberDto;
 import com.back.back.entity.Members;
 import com.back.back.service.MemberService;
 
@@ -30,43 +31,28 @@ public class MemberController {
     private MemberService memberService;
 
     // 회원 등록 (POST /api/members)
+    // @PostMapping("/join")
+    // public ResponseEntity<Members> createMember(@RequestBody Members member) {
+    //     Members savedMember = memberService.createMember(member);
+    //     System.out.println(member.getName());
+    //     // 성공적으로 처리되면 응답
+    //     return ResponseEntity.ok(savedMember);
+    // }
     @PostMapping("/join")
-    public ResponseEntity<Members> createMember(@RequestBody Members member) {
-        Members savedMember = memberService.createMember(member);
-        System.out.println(member.getName());
-        // 성공적으로 처리되면 응답
-        return ResponseEntity.ok(savedMember);
+    public ResponseEntity<Members> createMember(@RequestBody MemberDto memberDto) {
+        memberService.createMember(memberDto);
+        return ResponseEntity.ok().build();
     }
+
+
+
+
     // 회원 수정 (PUT /api/members/{id})
     @PutMapping("/{memId}")
     public Members updateMember(@PathVariable Long Id, @RequestBody Members updatedMember) {
         return memberService.updateMember(Id, updatedMember);
     }
 
-    // 회원 ID로 검색
-    @GetMapping("/{memId}")
-    public ResponseEntity<Members> getMemberById(@PathVariable String id) {
-        Optional<Members> member = memberService.getMemberById(id);
-        return member.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-
-    // 이메일로 회원 검색
-    @GetMapping("/email")
-    public ResponseEntity<Members> getMemberByEmail(@RequestParam String email) {
-        Optional<Members> member = memberService.getMemberByEmail(email);
-        return member.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    // 폰번호로 회원 검색
-    @GetMapping("/Phone")
-    public ResponseEntity<Members> getMemberByPhoneNumber(@RequestParam String phoneNumber) {
-        Optional<Members> member = memberService.getMemberByPhoneNumber(phoneNumber);
-        return member.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
 
     // 모든 회원 조회 (GET /api/members)
     @GetMapping

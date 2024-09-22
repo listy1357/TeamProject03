@@ -46,13 +46,6 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    // 가격이 특정 값보다 큰 상품 검색
-    @GetMapping("/price")
-    public ResponseEntity<List<Products>> getProductsWithPriceGreaterThan(@RequestParam int price) {
-        List<Products> products = productsService.getProductsWithPriceGreaterThan(price);
-        return ResponseEntity.ok(products);
-    }
-
     // 모든 상품 조회
     @GetMapping
     public ResponseEntity<List<Products>> getAllProducts() {

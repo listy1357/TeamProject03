@@ -42,18 +42,18 @@ public class MemberService {
     }
 
     // 회원 ID로 검색
-    public Optional<Members> getMemberById(Long memId) {
-        return membersRepository.findById(memId);
+    public Optional<Members> getMemberById(String id) {
+        return membersRepository.findById(id);
     }
 
     // 회원 이메일로 검색
     public Optional<Members> getMemberByEmail(String memEmail) {
-        return membersRepository.findByMemberMail(memEmail);
+        return membersRepository.findByEmail(memEmail);
     }
 
     // 전화번호로 조회
-    public Optional<Members> getMemberByPhone(String memPhone) {
-        return membersRepository.findByMemPhone(memPhone);  // 여기를 수정
+    public Optional<Members> getMemberByPhoneNumber(String memPhone) {
+        return membersRepository.findByPhoneNumber(memPhone);  // 여기를 수정
     }
 
     // 모든 회원 조회

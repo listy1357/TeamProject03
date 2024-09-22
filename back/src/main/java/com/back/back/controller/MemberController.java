@@ -43,10 +43,10 @@ public class MemberController {
         return memberService.updateMember(Id, updatedMember);
     }
 
-    // 회원 고유ID로 검색
+    // 회원 ID로 검색
     @GetMapping("/{memId}")
-    public ResponseEntity<Members> getMemberById(@PathVariable Long memId) {
-        Optional<Members> member = memberService.getMemberById(memId);
+    public ResponseEntity<Members> getMemberById(@PathVariable String id) {
+        Optional<Members> member = memberService.getMemberById(id);
         return member.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -62,8 +62,8 @@ public class MemberController {
 
     // 폰번호로 회원 검색
     @GetMapping("/Phone")
-    public ResponseEntity<Members> getMemberByPhone(@RequestParam String phone) {
-        Optional<Members> member = memberService.getMemberByPhone(phone);
+    public ResponseEntity<Members> getMemberByPhoneNumber(@RequestParam String phoneNumber) {
+        Optional<Members> member = memberService.getMemberByPhoneNumber(phoneNumber);
         return member.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

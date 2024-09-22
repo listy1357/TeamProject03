@@ -42,11 +42,5 @@ public class Products {
     @OneToMany(mappedBy = "products", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductImage> images;
 
-    // name, category, price, description 필드만 받는 생성자
-    public Products(String productName, String productCategory, int productPrice, int productStock) {
-        this.productName = productName;
-        this.productCategory = productCategory;
-        this.productPrice = productPrice;
-        this.productStock = productStock;
-    }
+
 }

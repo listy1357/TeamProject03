@@ -40,18 +40,14 @@ public class ProductsService {
 
     // 카테고리로 상품 검색
     public List<Products> getProductsByCategory(String productCategory) {
-        return productsRepository.findByCategory(productCategory);
+        return productsRepository.findByProductCategory(productCategory);
     }
 
     // 이름으로 상품 검색
     public List<Products> getProductsByName(String productName) {
-        return productsRepository.findByNameContaining(productName);
+        return productsRepository.findByProductName(productName);
     }
 
-    // 가격이 특정 값보다 큰 상품 검색
-    public List<Products> getProductsWithPriceGreaterThan(int productPrice) {
-        return productsRepository.findProductsWithPriceGreaterThan(productPrice);
-    }
 
     // 모든 상품 조회
     public List<Products> getAllProducts() {

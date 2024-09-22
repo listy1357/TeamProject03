@@ -27,7 +27,8 @@ public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderid;
+    @Column(name = "orderId")
+    private Long orderId;
 
     @ManyToOne
     @JoinColumn(name = "memId")
@@ -35,8 +36,9 @@ public class Orders {
 
     @Column(nullable = false)
     private LocalDateTime orderDate; // 주문 날짜
+    
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) 
     private List<Order_Detail> orderDetails; // 주문 상세와 일대다 관계
 }
 

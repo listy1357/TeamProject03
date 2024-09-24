@@ -1,7 +1,6 @@
 package com.back.back.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.back.back.dto.MemberDto;
@@ -21,7 +19,7 @@ import com.back.back.entity.Members;
 import com.back.back.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
-@CrossOrigin(origins = "http://localhost:3000") // React 앱의 주소
+@CrossOrigin(origins = {"http://localhost:3000","http://192.168.0.182:3000"}) // React 앱의 주소
 @RestController
 @RequestMapping("/api/members")
 @RequiredArgsConstructor

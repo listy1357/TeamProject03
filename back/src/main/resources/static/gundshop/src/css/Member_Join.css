@@ -1,0 +1,353 @@
+.join-background {
+    background-image: url('../image/login.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.join-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 1400px;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 90vw;
+    max-height: none;
+    overflow: hidden;
+    text-align: left;
+}
+
+.join-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.join-header-text {
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.join-step-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 70px 0;
+}
+
+.join-step-01 {
+    background-color: #740e55;
+    color: white;
+    padding: 15px 30px;
+    position: relative;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    flex: 1;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+}
+
+.join-step-01::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -20px;
+    border-left: 20px solid #f2f2f2;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+}
+
+.join-step-02 {
+    background-color: #f2f2f2;
+    color: #999;
+    padding: 15px 30px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    flex: 1;
+}
+
+.join-terms-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.join-terms-box {
+    margin-bottom: 20px;
+}
+
+.join-terms-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    resize: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.join-terms-agree {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.join-agree-content {
+    display: flex;
+    align-items: center;
+}
+
+.join-agree-content label {
+    margin-left: 10px;
+}
+
+.join-details-button {
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.join-details-button:hover {
+    background-color: #0056b3;
+}
+
+/* 개인정보 입력 폼 테이블 스타일 */
+.join-form-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.join-form-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #282928; /* 세로선을 하나로 보이도록 */
+    background-color: #f9f9f9; /* 배경색 추가 */
+    margin: 0;
+}
+
+.join-name {
+    border-left: solid 1px black;
+}
+
+.join-form-row .joinname {
+    margin: 10px 0 10px 20px; /* 상하 10px, 좌측 50px */
+}
+
+.join-birth {
+    border-left: solid 1px black;
+}
+
+.join-form-row .joinbirth {
+    margin: 10px 0 10px 20px; /* 상하 10px, 좌측 50px */
+}
+
+.join-id {
+    border-left: solid 1px black;
+}
+
+.join-paw {
+    border-left: solid 1px black;
+}
+
+.join-form-row .joinid {
+    margin: 10px 0 10px 20px; /* 상하 10px, 좌측 50px */
+}
+
+.join-form-row .joinpassword {
+    margin: 10px 0 10px 20px; /* 상하 10px, 좌측 50px */
+}
+
+.joinpasswordconfirm {
+    margin-left: 10px;
+}
+
+.join-phone {
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+    border-left: solid 1px black;
+}
+
+.join-phone-select{
+    margin: 10px 0 10px 20px;
+}
+
+.joinphonefirst {
+    width: 70px;
+    height: 25px;
+    margin-left: 10px; 
+}
+
+.joinphonesecond {
+    width: 70px;
+    height: 25px;
+    margin-left: 10px; 
+}
+
+.joinhipon {
+    margin-left: 10px; 
+}
+
+.join-radio1 {
+    font-size: 12px;
+    color: gray;
+    margin-left: 10px;
+}
+
+.join-radio2 {
+    font-size: 12px;
+    color: gray;
+    margin-left: 10px;
+}
+
+/* 주소 그룹을 위한 스타일 */
+.join-address-group {
+    display: flex;
+    align-items: center;
+}
+
+.join-address-input {
+    width: 70px;
+    height: 25px;
+    margin: 10px 0 10px 20px;
+}
+
+.join-address-input2 {
+    width: 70px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+.join-address-find {
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.join-address-block{
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid black;
+}
+
+/* 상세 주소 */
+.join-address-details {
+    display: flex;
+    flex-direction: column; 
+    margin: 10px 0 10px 20px;
+}
+
+/* 입력 필드 스타일 */
+.join-address-full {
+    margin-bottom: 10px; /* 입력 필드 간의 간격 */
+    width: 100%; /* 전체 너비로 설정 */
+    height: 25px;
+    padding: 5px; /* 패딩 추가 */
+}
+
+
+/* 이메일 */
+
+.join-email-group{
+    border-left: 1px solid black;
+}
+
+.join-email-input {
+    width: 150px;
+    height: 25px;
+    margin: 10px 0 10px 20px;
+}
+
+.join-at {
+    margin: 5px;
+}
+
+.join-email-input2 {
+    width: 150px;
+    height: 25px;
+    margin-left: 5px;
+}
+
+
+.join-email-radio {
+    display: flex;
+    font-size: 12px;
+    color: gray;
+    margin-left: 10px;
+}
+
+.join-form-row label {
+    width: 150px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    font-weight: bold;
+}
+
+
+.join-phone-input {
+    width: 100px;
+    margin-left: 10px;
+}
+
+.join-input-description {
+    margin-left: 10px;
+    font-size: 10px;
+    color: gray;
+}
+
+.join-input-description2 {
+    margin-left: 10px;
+    font-size: 10px;
+    color: rgb(233, 88, 3);
+}
+
+.join-duplicate-check-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.join-duplicate-check-button:hover {
+    background-color: #0056b3;
+}
+
+/* 가입 버튼 */
+.join-join {
+    width: 200px; /* 적절한 너비 설정 */
+    padding: 10px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px auto; /* 상단과 하단에 여백 추가, 중앙 정렬 */
+    display: block; /* 중앙 정렬을 위해 block으로 설정 */
+    text-align: center;
+}
+
+.join-join:hover {
+    background-color: #ff5714;
+}

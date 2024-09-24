@@ -1,0 +1,19 @@
+.star-rating-review {
+  margin-bottom: 15px;
+}
+
+.star-rating-review p {
+  margin: 5px 0;
+}
+
+.star-rating-container .star-rating-star {
+  font-size: 2rem; /* 별의 크기 */
+}
+
+.star-rating-on .star-rating-star {
+  color: gold; /* 노란색으로 채운 별 */
+}
+
+.star-rating-off .star-rating-star {
+  color: gray; /* 빈 별 */
+}

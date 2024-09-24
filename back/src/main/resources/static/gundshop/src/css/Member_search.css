@@ -1,0 +1,101 @@
+.search-background {
+    background-image: url('../image/login.jpg'); 
+    background-size: cover;
+    background-position: center;
+    width: 99vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-form { 
+    position: relative; /* 자식 요소에 대한 기준 위치 */
+    background-color: rgb(107, 182, 201);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
+    width: 1000px;
+    height: 600px;
+}
+
+.search-header {
+    display: flex; /* Flexbox 사용 */
+    align-items: center; /* 수직 중앙 정렬 */
+}
+
+.search-logo {
+    width: 150px; /* 로고의 너비 조정 */
+    height: auto; /* 비율 유지 */
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px; 
+}
+
+.search-section {
+    width: 48%;
+}
+
+.search-mid {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.search-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.search-label {
+    font-size: 14px;
+    width: 100px; /* 고정된 너비를 적용하여 아이디와 이름이 동일한 폭을 가짐 */
+    margin-right: 10px;
+    text-align: right; /* 텍스트를 오른쪽으로 정렬 */
+    white-space: nowrap;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.search-label2 {
+    font-size: 12px;
+    margin-right: 10px;
+    white-space: nowrap;
+    color: white;
+    margin-top: 30px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.search-select {
+    width: 100px; /* 원하는 너비로 select 박스의 크기를 설정 */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.search-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff5c5c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #ff7878;
+}

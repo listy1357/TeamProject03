@@ -1,0 +1,61 @@
+.detail-container {
+  padding: 20px;
+}
+
+.product-info {
+  margin-top: 20px;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.quantity-selector button {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-box {
+  width: 60px;
+  height: 40px;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 0 10px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Tabs 스타일 */
+.product-tabs {
+  margin-top: 50px;
+}
+
+.product-tabs .nav-tabs {
+  border-bottom: 2px solid #ddd;
+}
+
+.product-tabs .nav-tabs .nav-link {
+  color: #333;
+  padding: 10px 20px;
+}s
+
+.product-tabs .nav-tabs .nav-link.active {
+  border-color: #ff0000 #ff0000 transparent;
+  color: #ff0000;
+  font-weight: bold;
+}

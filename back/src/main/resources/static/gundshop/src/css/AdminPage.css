@@ -1,0 +1,38 @@
+.admin-product-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.admin-product-form .form-group {
+    margin-bottom: 15px;
+}
+
+.admin-product-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.admin-product-form .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+.product-list {
+    margin-top: 30px;
+}
+
+.product-list img {
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.product-list h5 {
+    margin-top: 15px;
+}

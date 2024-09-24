@@ -1,6 +1,7 @@
 package com.back.back.repository;
 
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -27,5 +28,9 @@ public interface MembersRepository extends JpaRepository<Members, Long> {
         @Param("address3") String address3,
         @Param("birth") Date birth
         );
+
+    @Query("SELECT m FROM Members m WHERE m.id = :id")
+    Members findById(@Param("id") String id);
+    // Members findById(String id);
 }
 

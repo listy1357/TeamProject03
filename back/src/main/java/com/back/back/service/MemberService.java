@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.back.back.dto.LogInDto;
 import com.back.back.dto.MemberDto;
 import com.back.back.entity.Members;
 import com.back.back.repository.MembersRepository;
@@ -40,24 +39,10 @@ public class MemberService {
         
     }
 
-    public Members login(LogInDto logInDto) {
-        System.out.println("로그인 시도: " + logInDto.getId()); // 로그 추가
-        Members member = membersRepository.findById(logInDto.getId());
-        
-        // null 체크
-        if (member == null) {
-            throw new RuntimeException("해당 아이디가 존재하지 않습니다."); // 예외 발생
-        }
-
-        // 비밀번호 확인
-        if (!member.getPassword().equals(logInDto.getPassword())) {
-            throw new RuntimeException("비밀번호가 일치하지 않습니다."); // 예외 발생
-        }
-
-        return member; // 로그인 성공
-    }
-
-
+    // // 회원 저장 또는 업데이트
+    // public Members saveMember(Members member) {
+    //     return membersRepository.save(member);
+    // }
     // 회원 수정
     public Members updateMember(Long memId, Members updatedMember) {
         // 먼저 해당 ID의 회원이 존재하는지 확인
